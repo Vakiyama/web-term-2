@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Numbers</title>
+        <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    </head>
+    <body>
+        <p> You asked for <%= count %> dice from <%= lower %> to <%= upper %>. Here they are:</p> 
+        <% matrix.forEach(col => { %>
+            <p>
+                <% col.forEach(result => { %>
+                <span><%= result %></span>     
+                <% }) %>
+                <br>
+            </p>
+        <% }) %>
+    </body>
+</html>

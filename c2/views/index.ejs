@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Number Generator</title>
+        <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    </head>
+    <body>
+        <%# include('__credit_header') %> 
+        <section>
+            <form method="get" action="/numbers">
+                <h2>Random Numbers</h2>
+                <p>How many random numbers do you want?   <input type="text" name="count" value="12" size="6" maxlength="12"></p>
+                <p>Each integer should have a value between 
+                    <input type="text" name="lower" value="1" size="6" maxlength="12">
+                    and
+                    <input type="text" name="upper" value="6" size="6" maxlength="12">
+                </p>
+                <p>Format in <input type="text" name="col" value="5" size="2" maxlength="6"> column(s).</p>
+                <input type="submit" value="Get Numbers">
+            </form>
+        </section>
+        <hr>
+    </body>
+</html>
