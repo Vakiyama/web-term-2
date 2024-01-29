@@ -6,7 +6,12 @@
         <link rel="stylesheet" type="text/css" href="/styles/styles.css">
     </head>
     <body>
-        <p> You asked for <%= count %> dice from <%= lower %> to <%= upper %>. Here they are:</p> 
+        <% if (diceType) { %>
+            <% for (let index = 0; index < 12; index++) { %>
+                <img class="onedie" src=<%= `assets/d${diceType}.png` %> />
+            <% } %>
+        <% } %>
+        <p> You asked for <%= count %><%= diceType ? `d${diceType}` : ` dice from ${lower} to ${upper}` %>. Here they are:</p> 
         <% matrix.forEach(col => { %>
             <p>
                 <% col.forEach(result => { %>
@@ -17,3 +22,4 @@
         <% }) %>
     </body>
 </html>
+

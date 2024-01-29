@@ -1,0 +1,12 @@
+
+img.onedie {
+  width: 25px;
+  height: 25px;
+}
+
+header {
+  width: 100%;
+  background-color: grey;
+  display: flex;
+  justify-content: flex-end;
+}

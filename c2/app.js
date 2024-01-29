@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express';
 const app = express()
 const port = 3000
 
@@ -20,26 +20,23 @@ app.get('/numbers', (req, res) => {
     if (lower === 1 && [4, 6, 8, 10, 12, 20].includes(upper)) {
         diceType = upper;
     }
-    let matrix = [[]];
-    let currentIndex = 0;
-    let currentCount = 0;
-    for (const result of results) {
-        console.log(currentCount, col)
-        if (currentCount !== parseInt(col) - 1) {
-            matrix[currentIndex].push(result);
-            currentCount++;
-            continue;
-        }
-        currentCount = 0;
-        currentIndex++;
-        matrix.push([result]);
-    }
+    
+    let index = 0;
+    const matrix = results.reduce((matrix, result) => {
+        console.log(matrix[index], index);
+        if (matrix[index].length === parseInt(col)) {
+            index++;
+            matrix.push([result]);
+            return matrix;
+        } 
+        matrix[index].push(result);
+        return matrix;
+    }, [[]]);
     //let counts = {};
     //for (let result of results) {
     //    counts[result] = (counts[result] || 0) + 1; 
     //}
-    console.log(matrix);
-    res.render('numbers', { lower, upper, count, results, matrix });
+    res.render('numbers', { lower, upper, count, col, matrix, diceType });
 })
 
 app.listen(port, () => {
