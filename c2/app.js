@@ -36,7 +36,8 @@ app.get('/numbers', (req, res) => {
     //for (let result of results) {
     //    counts[result] = (counts[result] || 0) + 1; 
     //}
-    res.render('numbers', { lower, upper, count, col, matrix, diceType });
+    //
+    res.render('numbers', { lower, upper, count,  col, matrix, diceType });
 })
 
 app.listen(port, () => {
